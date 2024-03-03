@@ -20,12 +20,41 @@ module.exports = {
         }
 
         const name = pokemon;
-        const types = json.types;
-        const stats = json.stats;
+
+        const types = [];
+
+        for (const type of json.types) {
+            const name = type.type.name;
+            types.push(name);
+        }
+
+        const stats = [];
+
+        for (const statI of json.stats) {
+            const name = statI.stat.name;
+            const base = statI.base_stat;
+            stats.push({name,base});
+        }
+
+        let types_string = ``;
+
+        let i = 0;
+        for (const type of types) {
+            types_string += `\t${++i}. ${type}\n`;
+        }
+
+        let stats_string = ``;
+
+        i = 0;
+        for (const stat of stats) {
+            stats_string += 
+            `${++i}. ${stat.name}\n\tBase Value: ${stat.base}\n` 
+        }
 
         console.log(`URL: ${url}`);
-        console.log()
 
-        await interaction.reply(`Name: ${name}\nTypes: ${types}\nStats: ${stats}`)
+        await interaction.reply(
+            `Name: ${name}\nTypes: ${types_string}\n-----Stats-----\n ${stats_string}`
+            )
     }
 };
