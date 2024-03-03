@@ -40,7 +40,7 @@ module.exports = {
 
         let i = 0;
         for (const type of types) {
-            types_string += `\t${++i}. ${type}\n`;
+            types_string += `${++i}. ${type.toUpperCase()}\n`;
         }
 
         let stats_string = ``;
@@ -48,13 +48,16 @@ module.exports = {
         i = 0;
         for (const stat of stats) {
             stats_string += 
-            `${++i}. ${stat.name}\n\tBase Value: ${stat.base}\n` 
+            `${++i}. ${stat.name.toUpperCase()}\n\tBase Value: ${stat.base}\n` 
         }
 
         console.log(`URL: ${url}`);
 
+        const name_string = name[0].toUpperCase() + name.slice(1);
+        
+
         await interaction.reply(
-            `Name: ${name}\nTypes: ${types_string}\n-----Stats-----\n ${stats_string}`
+            `-----------------\n\nNAME: ${name_string}\n\n-----TYPES-----\n${types_string}\n-----STATS-----\n${stats_string}`
             )
     }
 };
