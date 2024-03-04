@@ -57,7 +57,7 @@ module.exports = {
         
 
         await interaction.reply(
-            `-----------------\nNAME: ${name_string}\n\n-----TYPES-----\n${types_string}\n-----STATS-----\n${stats_string}`
+            `-----------------\n\t\t   ${name_string}\n-----TYPES-----\n${types_string}\n-----STATS-----\n${stats_string}`
             )
     }
 };
