@@ -2,7 +2,7 @@ const { SlashCommandBuilder } = require('discord.js');
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName('search')
+        .setName('dex')
         .setDescription('Returns important information about a given pokemon.')
         .addStringOption(option => 
             option.setName('pokemon')
