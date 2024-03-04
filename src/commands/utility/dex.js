@@ -1,4 +1,4 @@
-const { SlashCommandBuilder } = require('discord.js');
+const { SlashCommandBuilder, EmbedBuilder, channelLink, GuildChannel } = require('discord.js');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -20,6 +20,7 @@ module.exports = {
         }
 
         const name = pokemon;
+        const image = json.sprites.other.front_default
 
         const types = [];
 
@@ -40,7 +41,7 @@ module.exports = {
 
         let i = 0;
         for (const type of types) {
-            types_string += `${++i}. ${type.toUpperCase()}\n`;
+            types_string += `${++i}. *${type.toUpperCase()}*\n`;
         }
 
         let stats_string = ``;
@@ -54,10 +55,25 @@ module.exports = {
         console.log(`URL: ${url}`);
 
         const name_string = name[0].toUpperCase() + name.slice(1);
-        
 
+        const embed_message = new EmbedBuilder()
+            .setColor(0x0099FF)
+            .setTitle(`*${name_string}*`)
+            .setThumbnail(image)
+            .addFields(
+                { name: "Types", value: `${types_string}`},
+                { name: "Stats" , value: `${stats_string}` }
+            )
+
+        
+        let channel = interaction.channel;
+        channel.send({ embeds: [embed_message] });
+
+        // Non-embedded message below
+        /*
         await interaction.reply(
             `-----------------\nNAME: *${name_string}*\n-----TYPES-----\n${types_string}\n-----STATS-----\n${stats_string}`
             )
+        */
     }
 };
