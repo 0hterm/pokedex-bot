@@ -32,4 +32,9 @@ The bot will return the following information:
 After you've done the installation steps above, continue here:
 
 ```bash
+
 nodemon
+
+--- new terminal ---
+
+node src/deploy-commands.js
