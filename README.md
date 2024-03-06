@@ -14,11 +14,15 @@ The bot will return the following information:
   <li>Image</li>
 </ul>
 
+## Video Example
+https://github.com/0hterm/pokedex-bot/assets/140545108/5b2c4a56-2633-437f-8001-79eb10d83ce1
+
+
+
 ## Table of Contents
 
 - [Installation](#installation)
 - [Usage](#usage)
-- [Configuration](#configuration)
 
 ## Installation
 
